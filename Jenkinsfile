@@ -8,8 +8,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 script {
-                    echo "Selected branch: ${params.BRANCH}"
-                    // Checkout the selected branch
+                    echo "Selected branch is : ${params.BRANCH}"
                     checkout([
                         $class: 'GitSCM', 
                         branches: [[name: "*/${params.BRANCH}"]],
@@ -18,12 +17,7 @@ pipeline {
                 }
             }
         }
-        stage('Build') {
-            steps {
-                echo "Building branch: ${params.BRANCH}"
-            
-            }
-        }
+        
     }
 }
 
